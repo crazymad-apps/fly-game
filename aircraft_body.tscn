@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj7002xpyv7qt"]
-
-[ext_resource type="Texture2D" uid="uid://dqdc8d4qherj3" path="res://phase-0.png" id="1_2p6v8"]
-
-[node name="aircraft-body" type="Node2D"]
-
-[node name="Phase-0" type="Sprite2D" parent="."]
-position = Vector2(61, 60)
-texture = ExtResource("1_2p6v8")
