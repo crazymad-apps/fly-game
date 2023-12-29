@@ -5,11 +5,14 @@ signal hit
 @export var speed = 400
 var screen_size
 
+@export var bullet_scene: PackedScene
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 	$AnimatedSprite2D.animation = "idle"
 	$AnimatedSprite2D.play()
+	hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -39,8 +42,16 @@ func _on_body_entered(body):
 	hide()
 	hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
-	
+	$GunTimer.stop()
+
+
+# 武器发射
+func _on_gun_timer_timeout():
+	var bullet = bullet_scene.instantiate()
+	add_child(bullet)
+
 func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+	$GunTimer.start()
