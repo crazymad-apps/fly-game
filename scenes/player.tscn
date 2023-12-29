@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfntlf0vtsu8s"]
+[gd_scene load_steps=10 format=3 uid="uid://bfntlf0vtsu8s"]
 
 [ext_resource type="Texture2D" uid="uid://bf41bn430odht" path="res://phase-0-0.png" id="1_dx1st"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_jtres"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dsqu8tpxeufm3" path="res://scenes/bullet.tscn" id="2_wyok1"]
 [ext_resource type="Texture2D" uid="uid://cmkabqqnkw774" path="res://images/phase-0-right-0.png" id="4_oy8bx"]
 [ext_resource type="Texture2D" uid="uid://ws4pij8ax500" path="res://images/phase-0-right-1.png" id="5_v4cmb"]
+[ext_resource type="AudioStream" uid="uid://77tikqg8mmjb" path="res://sounds/SHOOT011.mp3" id="7_6i08n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tqdja"]
 animations = [{
@@ -52,6 +53,9 @@ debug_color = Color(0.972549, 0, 0.431373, 0.419608)
 
 [node name="GunTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="ShotSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6i08n")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="GunTimer" to="." method="_on_gun_timer_timeout"]

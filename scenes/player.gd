@@ -49,6 +49,7 @@ func _on_body_entered(body):
 func _on_gun_timer_timeout():
 	var bullet = bullet_scene.instantiate()
 	add_child(bullet)
+	$ShotSound.play()
 
 func start(pos):
 	position = pos
